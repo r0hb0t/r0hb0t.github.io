@@ -24,10 +24,10 @@ body {
 	justify-content: space-around;
 	background-color: var(--b0);
 	padding: 0px;
-	font-family: Malgun Gothic, sans-serif; /*https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list*/
+	font-family: Malgun Gothic, San Francisco, sans-serif; /*https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list*/
 	width: 100%;
 	margin: 0px;
-	margin-top: calc(var(--header-h) + 25px);
+	margin-top: calc(var(--header-h));
 }
 
 hr {
@@ -41,6 +41,7 @@ hr {
 img {
 	border: var(--b1) var(--border-thin);
 	margin-block: 2em;
+	height: 300px;
 }
 p {
 	font-size: 20px;
@@ -83,6 +84,17 @@ a:hover {
 }
 a:active {
 	color: var(--b1);
+}
+
+.blurredBackground {
+	background: center linear-gradient(#333333,var(--b0));
+	width: 100%;
+	margin: 0px;
+	height: 100%;
+	/*filter: blur(100px);*/
+	position: fixed;
+	top: 0px;
+	z-index: -1;
 }
 
 .menuAndBar {
@@ -239,7 +251,6 @@ input:hover ~ .toggleButton {
 	margin-inline: 50px;
 	padding: 5px;
 	width: calc(100% - margin-inline / 2);
-	background-color: var(--b0);
 	color: var(--b1);
 	text-align: center;
 	text-wrap: balance;
