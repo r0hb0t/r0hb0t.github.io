@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+	--shadow: #141269;
+	--light: #706fde;
+	--neu: color-mix(in srgb, var(--light) 50%, var(--shadow) 50%);
+	--shadow-neu: color-mix(in srgb, var(--light) 35%, var(--shadow) 65%);
+	--light-neu: color-mix(in srgb, var(--light) 65%, var(--shadow) 35%);
+	--b0: #000000;
+	--b1: #ffffff;
+	--button-out: 2px 2px 5px var(--shadow), 
+					-2px -2px 5px var(--light);
+	--convex: linear-gradient(315deg, var(--shadow-neu),var(--light-neu));
+	--button-in: -2px -2px 10px var(--shadow), 
+					2px 2px 10px var(--light);
+	--concave: linear-gradient(135deg, var(--shadow-neu),var(--light-neu));
+	--header-h: 50px;
+	--time-drop: 0.3s;
+}
+
+
+body {
+	align-items: center;
+	justify-content: space-around;
+	background-color: var(--neu);
+	padding: 0px;
+	font-family: "Zilla Slab"; /*https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list*/
+	width: 100%;
+	margin: 0px;
+	margin-top: calc(var(--header-h));
+	color: var(--b1);
+}
+
+
+p {
+	font-size: 24px;
+	font-weight: 100;
+	margin-block: 0px;
+}
+h1 {
+	animation-name: "chromaKeyShadow";
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	font-size: 100px;
+	font-weight: bolder;
+}
+h2 {
+	font-size: 60px;
+	font-weight: 700;
+	color: var(--neu);
+	-webkit-text-stroke: var(--light-neu) 1px;
+	text-shadow: var(--button-out);
+}	
+
+.slideMenu {
+	pointer-events: none;
+	position: fixed;
+	top: 0px; left: 0px;
+	height: fit-content;
+	width: fit-content;
+	z-index: 1;
+	
+}
+.slideContent {
+	display: block;
+	z-index: 1;
+	overflow: hidden;
+	width: fit-content;
+	height: fit-content;
+	background: var(--neu);
+	box-shadow: var(--button-out);
+	border-radius: 40px;
+	padding: 30px;
+	white-space: nowrap;
+	overflow: scroll;
+	margin: 30px;
+	align-content: center;
+	position: absolute;
+	left: -400px;
+	transition: all 0.3s ease-in-out;
+}
+.slideContent a {
+	background: var(--convex);
+	box-shadow: var(--button-out);
+	color: var(--b1);
+	text-decoration: none;
+	width: fit-content;
+	padding: 10px;
+	border-radius: 20px;
+	font-size: 40px;
+	margin: 10px;
+	margin-block: 30px;
+	display: block;
+	height: 60px;
+	line-height: 60px;
+	margin-top: 10px;
+
+	cursor: pointer;
+	pointer-events: auto;
+	transition: all 0.3s;
+}
+
+
+
+input {
+	cursor: pointer;
+	pointer-events: auto;
+	opacity: 0;
+	z-index: 3;
+}
+.slideMenu input {
+	width: var(--header-h);
+	height: var(--header-h);
+	position: absolute;
+	top: 30px; left: 30px;
+}
+.dropText input {
+	width: 200px;
+	height: 220px;
+	position: absolute;
+	display: block;
+}
+
+input ~ .toggleButton {
+	text-decoration: none;
+	cursor: pointer;
+	pointer-events: auto;
+	margin: 30px;
+	background: var(--convex);
+	color: var(--b1);
+	box-shadow: var(--button-out);
+	font-size: 40px;
+	width: var(--header-h);
+	height: 100%;
+	display: block;
+	line-height: var(--header-h);
+	border-radius: 30px;
+	transition: all 0.3s;
+}
+
+input ~ .toggleButton p {
+	font-size: 40px;
+	margin: 0px;
+	text-align: center;
+	transform: rotate(90deg);
+	transition: transform var(--time-drop) ease-in-out;
+}
+
+
+header a:hover {
+	background: var(--convex);
+	box-shadow: var(--button-in);
+}
+
+/*Checkbox*/
+input:checked ~ .slideContent {
+	left: 0px;
+}
+.slideMenu input:checked ~ .toggleButton {
+	box-shadow: var(--button-in);
+}
+input:checked ~ .toggleButton p {
+	transform: rotate(0deg);
+	transition: transform var(--time-drop) ease-in-out;
+}
+.slideMenu input:checked:hover ~ .toggleButton {
+	background: var(--concave);
+}
+.slideMenu input:hover ~ .toggleButton {
+	background: var(--concave);
+}
+
+
+
+
+
+/*Text box*/
+.indieText {
+	margin-block: 25px;
+	margin-inline: 50px;
+	padding: 5px;
+	width: calc(100% - margin-inline / 2);
+	color: var(--b1);
+	text-align: center;
+	text-wrap: balance;
+}
+.textBox {
+	margin-bottom: 100px;
+	margin-inline: auto;
+	padding-block: 50px;
+	padding-inline: 5%;
+	width: calc(100% - 120px);
+	/*background: linear-gradient(315deg,var(--shadow-neu),var(--light-neu));*/
+	background-color: var(--neu);
+	border: 5px var(--neu) solid;
+	box-shadow: 5px 5px 10px var(--shadow), 
+		-5px -5px 10px var(--light),
+		inset -3px -3px 10px var(--light),
+		inset 3px 3px 10px var(--shadow);
+	border-radius: 40px;
+	/*border-radius: 20px;*/
+	text-align: center;
+	text-wrap: balance;
+	max-width: 800px;
+	justify-content: space-around;
+}
+
+
+
+
+.dropText {
+	margin-bottom: 100px;
+	margin-inline: auto;
+	width: calc(100% - margin-inline / 2);
+	background: var(--concave);
+	color: var(--b1);
+	/*border-radius: 20px;*/
+	text-align: center;
+	text-wrap: balance;
+	max-width: 800px;
+	pointer-events: none;
+}
+.dropTextHeader {
+	margin: 0px;
+	margin-inline: auto;
+	padding: 0px;
+	width: 100%;
+	display: table-row;
+}
+.dropTextButtonSpace {
+	width: 200px;
+	display: table-cell;
+	text-align: left;
+}
+.dropTextTitle {
+	display: table-cell;
+	text-align: left;
+	padding: 30px;
+	height: 220px;
+}
+.dropTextContent {
+	margin: 0px;
+	margin-inline: auto;
+	padding: 0px;
+	width: 100%;
+	z-index: 1;
+	max-height: 0px;
+	overflow: hidden;
+	transition: max-height var(--time-drop) ease-in-out;
+}
+
+
+
+.bottom {
+	padding-inline: 10px;
+	font-size: 10px;
+	padding-top: 50px;
+	color: var(--b1);
+}
+
+/*Animations*/
+@keyframes chromaKey {
+	0% {color: #ff0000;}
+	16% {color: #ffff00;}
+	32% {color: #00ff00;}
+	48% {color: #00ffff;}
+	64% {color: #0000ff;}
+	80% {color: #ff00ff;}
+	100% {color: #ff0000;}
+}
+
+@keyframes chromaKeyShadow {
+	0% {text-shadow: #ff0000 0px 0px 50px;}
+	16% {text-shadow: #ffff00 0px 0px 50px;}
+	32% {text-shadow: #00ff00 0px 0px 50px;}
+	48% {text-shadow: #00ffff 0px 0px 50px;}
+	64% {text-shadow: #0000ff 0px 0px 50px;}
+	80% {text-shadow: #ff00ff 0px 0px 50px;}
+	100% {text-shadow: #ff0000 0px 0px 50px;}
+}
