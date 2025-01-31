@@ -233,10 +233,11 @@ header input:checked ~ .toggleButton p {
 	text-shadow: -1px 1px 2px var(--shadow), 
 		1px -1px 2px var(--light);
 }
-.slideMenu input:checked:hover ~ .toggleButton {
+
+.slideMenu input:checked:active ~ .toggleButton {
 	background: var(--concave);
 }
-.slideMenu input:hover ~ .toggleButton {
+.slideMenu input:active ~ .toggleButton {
 	background: var(--concave);
 }
 
@@ -371,7 +372,7 @@ input:checked ~ .dropTextContent {
 	max-height: calc(100%);
 	padding-bottom: 50px;
 }
-.dropText input:hover ~ .toggleButton {
+.dropText input:active ~ .toggleButton {
 	background: var(--concave);
 }
 .dropText input:checked ~ .toggleButton {
@@ -380,7 +381,7 @@ input:checked ~ .dropTextContent {
 		inset -5px -5px 20px var(--light-neu);
 	background: var(--convex);
 }
-.dropText input:checked:hover ~ .toggleButton {
+.dropText input:checked:active ~ .toggleButton {
 	background: var(--concave);
 }
 .dropText input:checked ~ .toggleButton p {
