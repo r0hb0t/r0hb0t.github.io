@@ -21,6 +21,8 @@
 	--convex-strong: linear-gradient(315deg, var(--shadow),var(--light));
 	--concave-strong: linear-gradient(135deg, var(--shadow),var(--light));
 	--header-h: 50px;
+	--slide-top: 30px;
+	--slide-left: 30px;
 	--time-drop: 0.3s;
 	--text-margin: 50px;
 }
@@ -80,22 +82,22 @@ h1 {
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 	font-size: 100px;
-	font-weight: bolder;
+	font-weight: 900;
 }
 h2 {
-	font-size: 60px;
-	font-weight: 700;
+	font-size: 70px;
+	font-weight: 900;
 	color: var(--shadow);
-	-webkit-text-stroke: var(--light) 1px;
+	-webkit-text-stroke: var(--light-neu) 2px;
 	text-shadow: var(--button-out);
 	margin: 0px;
 	margin-top: var(--text-margin);
 	padding: 0px;
 }
 h3 {
-	font-size: 40px;
-	font-weight: 700;
-	color: var(--neu);
+	font-size: 60px;
+	font-weight: 600;
+	color: var(--shadow);
 	-webkit-text-stroke: var(--light-neu) 1px;
 	text-shadow: var(--button-out);
 	margin: 0px;
@@ -117,13 +119,13 @@ a {
 	color: var(--shadow);
 }
 
+
 .slideMenu {
 	pointer-events: none;
 	position: fixed;
 	top: 0px; left: 0px;
-	height: fit-content;
-	width: fit-content;
 	z-index: 4;
+	size: fit-content;
 }
 .slideContent {
 	display: block;
@@ -139,11 +141,11 @@ a {
 	white-space: nowrap;
 	overflow: scroll;
 	margin: 30px;
-	margin-top: 0px;
 	align-content: center;
-	position: absolute;
-	left: -400px;
-	transition: all 0.3s ease-in-out;
+	position: fixed;
+	left: calc(-1 * 50cqw);
+	top: 80px;
+	transition: all 0.3s ease-out;
 }
 .slideContent a {
 	background: var(--concave);
@@ -165,6 +167,17 @@ a {
 	pointer-events: auto;
 	transition: all 0.3s;
 }
+.slideContent a:hover {
+	background: var(--concave);
+	box-shadow: var(--button-in), var(--button-in-inset);
+	background: linear-gradient(315deg,var(--neu),var(--shadow-neu));
+	color: var(--shadow);
+} .slideContent a:active {
+	background: var(--concave);
+	box-shadow: var(--button-in), var(--button-in-inset);
+	background: linear-gradient(315deg,var(--neu),var(--shadow-neu));
+	color: var(--shadow);
+}
 
 
 
@@ -177,7 +190,7 @@ input {
 	width: var(--header-h);
 	height: var(--header-h);
 	position: absolute;
-	top: 30px; left: 30px;
+	top: var(--slide-top); left: var(--slide-left);
 	z-index: 5;
 }
 .dropText input {
@@ -188,12 +201,7 @@ input {
 	z-index: 3;
 }
 
-.slideContent a:hover {
-	background: var(--concave);
-	box-shadow: var(--button-in), var(--button-in-inset);
-	background: linear-gradient(315deg,var(--neu),var(--shadow-neu));
-	color: var(--shadow);
-}
+
 input ~ .toggleButton {
 	text-decoration: none;
 	cursor: pointer;
@@ -204,11 +212,15 @@ input ~ .toggleButton {
 	box-shadow: var(--button-out), var(--button-out-inset);
 	font-size: 40px;
 	width: var(--header-h);
-	height: 100%;
+	height: var(--header-h);
 	display: block;
 	line-height: var(--header-h);
 	border-radius: 30px;
 	transition: all 0.3s;
+}
+header input ~ .toggleButton {
+	position: fixed;
+	top: 0px; left: 0px;
 }
 header input ~ .toggleButton p {
 	font-size: 40px;
@@ -225,9 +237,7 @@ header input ~ .toggleButton p {
 input:checked ~ .slideContent {
 	left: 0px;
 }
-.slideMenu input:checked ~ .toggleButton {
-	box-shadow: var(--button-in), var(--button-in-inset);
-}
+
 header input:checked ~ .toggleButton p {
 	transform: rotate(-90deg);
 	transition: all var(--time-drop) ease-in-out;
