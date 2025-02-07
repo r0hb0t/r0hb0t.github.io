@@ -296,7 +296,7 @@ header a:hover {
 /*Checkbox*/
 input:checked ~ .dropContent {
 	display: inline-block;
-	max-height: calc(237%);
+	max-height: calc(150%);
 }
 input:checked ~ .dropTextContent {
 	display: inline-block;

@@ -25,6 +25,10 @@
 	--slide-left: 30px;
 	--time-drop: 0.3s;
 	--text-margin: 50px;
+
+	--shadow-pos-0: 5px 5px 10px;
+	--shadow-pos-1: -5px 5px 10px;
+	--shadow-pos-2: 0px -5px 10px;
 }
 
 ::selection {
@@ -37,7 +41,7 @@ body {
 	justify-content: space-around;
 	background-color: var(--neu);
 	padding: 0px;
-	font-family: "Zilla Slab"; /*https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list*/
+	font-family: Zilla Slab; /*https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list*/
 	width: 100%;
 	margin: 0px;
 	margin-top: calc(var(--header-h));
@@ -80,8 +84,8 @@ iframe {
 	pointer-events: all;
 }
 h1 {
-	animation-name: "chromaKeyShadow";
-	animation-duration: 3s;
+	animation-name: chromaKeyShadow;
+	animation-duration: 10s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 	font-size: 7em;
@@ -123,7 +127,29 @@ a {
 } a:active {
 	color: var(--shadow);
 }
+.textBox a {
+	-webkit-text-stroke: var(--light-neu) 2px;
+}
 
+.astigmatism {
+	color: #ffffff;
+	background-color: black;
+	border-radius: 20px;
+	border: var(--light-neu) 2px solid;
+	font-size: 2em;
+	font-weight: 100;
+	padding-block: 0.25em;
+	margin-top: 40px;
+}
+.astigmatism.right {
+	text-shadow: #777777 -1px 0px 4px,
+				#777777 -3px -3px 6px,
+				#777777 -2px 3px 5px;
+}
+.astigmatism.left {
+	text-shadow: #ffaaaa 1.5px -0.5px 1.5px,
+				#aaaaff 0px 1.5px 0.5px;
+}
 
 .slideMenu {
 	pointer-events: none;
@@ -306,7 +332,8 @@ header input:checked ~ .toggleButton p {
 	text-wrap: balance;
 	max-width: 800px;
 	pointer-events: none;
-
+	flex: 1;
+	height: fit-content;
 	
 	padding-top: 0px;
 	padding-bottom: var(--text-margin);
@@ -322,9 +349,10 @@ header input:checked ~ .toggleButton p {
 	border-radius: 40px;
 	justify-content: space-around;
 }
-.dropText .dropText {
+.dropTextContent .dropText {
 	margin-top: var(--text-margin);
 	margin-bottom: 0px;
+	max-width: 920px;
 }
 .dropTextHeader {
 	margin: 0px;
@@ -348,6 +376,7 @@ header input:checked ~ .toggleButton p {
 	margin-inline: auto;
 	padding: 0px;
 	width: 100%;
+	height: fit-content;
 	z-index: 1;
 	max-height: 0px;
 	overflow: hidden;
@@ -391,7 +420,8 @@ header input:checked ~ .toggleButton p {
 
 input:checked ~ .dropTextContent {
 	display: inline-block;
-	max-height: calc(100%);
+	flex: 1;
+	max-height: 100%;
 	padding-bottom: 50px;
 }
 .dropText input:active ~ .toggleButton {
@@ -433,11 +463,18 @@ input:checked ~ .dropTextContent {
 }
 
 @keyframes chromaKeyShadow {
-	0% {text-shadow: #ff0000 0px 0px 50px;}
+	0% {text-shadow: var(--shadow) var(--shadow-pos-0);}
+	17% {text-shadow: var(--light) var(--shadow-pos-1);}
+	33% {text-shadow: var(--shadow) var(--shadow-pos-2);}
+	50% {text-shadow: var(--light) var(--shadow-pos-0);}
+	67% {text-shadow: var(--shadow) var(--shadow-pos-1);}
+	83% {text-shadow: var(--light) var(--shadow-pos-2);}
+	100% {text-shadow: var(--shadow) var(--shadow-pos-0);}
+	/*0% {text-shadow: #ff0000 0px 0px 50px;}
 	16% {text-shadow: #ffff00 0px 0px 50px;}
 	32% {text-shadow: #00ff00 0px 0px 50px;}
 	48% {text-shadow: #00ffff 0px 0px 50px;}
 	64% {text-shadow: #0000ff 0px 0px 50px;}
 	80% {text-shadow: #ff00ff 0px 0px 50px;}
-	100% {text-shadow: #ff0000 0px 0px 50px;}
+	100% {text-shadow: #ff0000 0px 0px 50px;}*/
 }
