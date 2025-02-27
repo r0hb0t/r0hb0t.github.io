@@ -4,14 +4,16 @@
 </head>
 <title>Rohan Sharma</title>
 
-<header id="header"></header>
-<script src="header.js" type="text/javascript"></script>
+<header></header>
+<script src="scripts.js" type="text/javascript"></script>
 <script>
+    insertHeader();
 	onLoad();
 </script>
 
 
 <body>
+<div class="wrapper">
 	<div class="indieText">
 		<h1>Resources!</h1>
 	</div>
@@ -30,23 +32,23 @@
         <div class="dropTextContent">
             <h3>Jazz</h3>
             <p>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?si=wvwP5G6i_8Rr0YbX&amp;list=PL8F6B0753B2CCA128" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries&amp;list=PL8F6B0753B2CCA128" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </p>
             <hr>
             <h3>White Noise</h3>
+            <p id="currentlyPlaying">
+                Currently playing: nothing. Add JavaScript for shuffle play and title. https://developers.google.com/youtube/player_parameters - - - - https://developers.google.com/youtube/iframe_api_reference#Playback_controls
+            </p>
             <p>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nMfPqeZjc2c?si=68ypqhEQcY9MNhrd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nMfPqeZjc2c" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </p>
         </div>
 	</div>
 
-
+</div>
 </body>
 
 <footer>
-	<div class="bottom">
-		<p>All rights reserved. ©2025 Bozo Inc. Tech Solutions. In collaboration with the Institute of Knowledge, Washington D.C.</p>
-	</div>
 </footer>
 
 </html>

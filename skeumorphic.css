@@ -1,82 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
-	--shadow: #800066;/*#ca0000;*/ /*#1f008f;*/
-	--light: #ffcf30;/*#9dff00;*/ /*#ff5100;*/
-	--neu: color-mix(in srgb, var(--light) 50%, var(--shadow) 50%);
-	--shadow-neu: color-mix(in srgb, var(--light) 25%, var(--shadow) 75%);
-	--light-neu: color-mix(in srgb, var(--light) 75%, var(--shadow) 25%);
-	--b0: #000000;
-	--b1: #ffffff;
-	--button-out: 2px 2px 5px var(--shadow), 
-					-2px -2px 5px var(--light);
-	--button-in-inset: inset 2px 2px 5px var(--shadow-neu), 
-					inset -2px -2px 5px var(--light-neu);
-	--button-in: -2px -2px 10px var(--shadow),
-					2px 2px 10px var(--light-neu);
-	--button-out-inset: inset -2px -2px 10px var(--shadow-neu), 
-					inset 2px 2px 10px var(--light);
-	--convex: linear-gradient(315deg, var(--shadow-neu),var(--light-neu));
-	--concave: linear-gradient(135deg, var(--shadow-neu),var(--light-neu));
-	--convex-strong: linear-gradient(315deg, var(--shadow),var(--light));
-	--concave-strong: linear-gradient(135deg, var(--shadow),var(--light));
+	--s: #800066;/*#ca0000;*/ /*#1f008f;*/
+	--l: #ffcf30;/*#9dff00;*/ /*#ff5100;*/
+	--n: color-mix(in srgb, var(--l) 50%, var(--s) 50%);
+	--ns: color-mix(in srgb, var(--l) 25%, var(--s) 75%);
+	--nl: color-mix(in srgb, var(--l) 75%, var(--s) 25%);
+	--b0: var(--l);
+	--b1: #442233;
+	--a: rgb(255, 238, 0); /*accent*/
+	--button-out: 2px 2px 10px var(--s), 
+					-2px -2px 10px var(--l);
+	--button-in-inset: inset 2px 2px 5px var(--ns);
+	--button-out-inset: inset -2px -2px 10px var(--ns), 
+					inset 2px 2px 10px var(--l);
 	--header-h: 50px;
 	--slide-top: 30px;
 	--slide-left: 30px;
 	--time-drop: 0.3s;
-	--text-margin: 50px;
+	--text-margin: 30px;
 
 	--shadow-pos-0: 5px 5px 10px;
 	--shadow-pos-1: -5px 5px 10px;
 	--shadow-pos-2: 0px -5px 10px;
+
+	--time-button-half: 0.3s;
 }
 
 ::selection {
-	color: var(--light);
-	background: var(--shadow);
+	color: var(--l);
+	background: var(--s);
 }
 
 body {
 	align-items: center;
 	justify-content: space-around;
-	background-color: var(--neu);
+	background-color: var(--n);
 	padding: 0px;
 	font-family: Zilla Slab; /*https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list*/
 	width: 100%;
 	margin: 0px;
-	margin-top: calc(var(--header-h));
 	color: var(--b1);
+	flex: 1;
+}
+
+.wrapper {
+	align-items: center;
+	flex: 1;
+	padding-inline: 5%;
 }
 
 
 p {
-	font-size: 2em;
+	font-size: 30px;
 	font-weight: 100;
-	margin-bottom: 0px;
-	margin-top: var(--text-margin);
-}
-br {
-	margin-bottom: 1em;
-}
-hr {
-	width: 90%;
-	height: 1px;
-	border: solid;
-	border-width: 2px;
-	color: var(--neu);
-	background-color: var(--neu);
-	box-shadow: var(--button-out);
 	margin-block: var(--text-margin);
+	pointer-events: auto;
 }
 img {
-	border: var(--neu) 10px solid;
+	border: var(--n) 10px solid;
 	box-shadow: var(--button-out);
 	border-radius: 20px;
 	margin: 0px;
 	height: 300px;
 }
 iframe {
-	border: var(--neu) 10px solid;
+	border: var(--n) 10px solid;
 	box-shadow: var(--button-out);
 	border-radius: 20px;
 	margin: 0px;
@@ -84,62 +73,96 @@ iframe {
 	pointer-events: all;
 }
 h1 {
-	animation-name: chromaKeyShadow;
-	animation-duration: 10s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-	font-size: 7em;
+	font-size: 110px;
 	font-weight: 900;
-	margin-block: 0px;
-	line-height: 1em;
-}
-h2 {
-	font-size: 5em;
-	font-weight: 900;
-	color: var(--shadow);
-	-webkit-text-stroke: var(--light-neu) 2px;
+	-webkit-text-stroke: var(--nl) 2px;
 	text-shadow: var(--button-out);
 	margin: 0px;
-	margin-top: var(--text-margin);
 	padding: 0px;
+	pointer-events: auto;
+}
+h2 {
+	font-size: 80px;
+	font-weight: 900;
+	-webkit-text-stroke: var(--nl) 2px;
+	pointer-events: auto;
+	margin-block: var(--text-margin);
 }
 h3 {
 	font-size: 4em;
 	font-weight: 600;
-	color: var(--shadow);
-	-webkit-text-stroke: var(--light-neu) 1px;
-	text-shadow: var(--button-out);
-	margin: 0px;
-	margin-top: var(--text-margin);
-	padding: 0px;
+	-webkit-text-stroke: var(--nl) 1px;
+	margin-block: 0.3em;
+	pointer-events: auto;
+}
+hr {
+	width: 90%;
+	height: 1px;
+	border: solid;
+	border-width: 2px;
+	border-radius: 999px;
+	color: var(--n);
+	background-color: var(--n);
+	box-shadow: 4px 4px 7px var(--s), 
+		-4px -4px 7px var(--l);
+	margin-block: 5s0px;
 }
 a {
 	cursor: pointer;
 	display: block;
-	color: var(--shadow);
-	text-decoration: none;
+	color: var(--b1);
+	text-decoration: underline var(--a);
+	transition: text-decoration 0.2s linear;
 } a:link {
-	color: var(--shadow);
+	text-decoration: underline var(--a);
 } a:visited {
-	color: var(--shadow-neu);
+	text-decoration: underline var(--a);
 } a:hover {
-	color: var(--light);
+	text-decoration: underline var(--l);
 } a:active {
-	color: var(--shadow);
+	text-decoration: underline var(--s);
 }
 .textBox a {
-	-webkit-text-stroke: var(--light-neu) 2px;
+	-webkit-text-stroke: var(--nl) 2px;
+}
+
+
+.generalContainer {
+	max-width: 800px;
+	margin-inline: auto;
+	margin-block: 50px;
+	border-radius: 60px;
+	box-shadow: -20px -20px 60px var(--l),
+			20px 20px 60px var(--s);
+	padding: 60px;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}
+.generalContainer h2 {
+	font-size: 5em;
+	font-weight: 600;
+	-webkit-text-stroke: var(--nl) 1px;
+	width: fit-content;
+	margin-inline: auto;
+}
+.generalContainer p {
+	margin-block: 5px;
+	font-size: 2.4em;
+	font-weight: 100;
+	width: fit-content;
+	margin-inline: auto;
 }
 
 .astigmatism {
 	color: #ffffff;
 	background-color: black;
 	border-radius: 20px;
-	border: var(--light-neu) 2px solid;
+	border: var(--nl) 2px solid;
 	font-size: 2em;
 	font-weight: 100;
 	padding-block: 0.25em;
-	margin-top: 40px;
+	margin-block: var(--text-margin);
 }
 .astigmatism.right {
 	text-shadow: #777777 -1px 0px 4px,
@@ -164,13 +187,12 @@ a {
 	overflow: hidden;
 	width: fit-content;
 	height: fit-content;
-	background: var(--neu);
-	box-shadow: var(--button-out), var(--button-in-inset);
-	border: var(--neu) 10px solid;
+	background: var(--n);
+	box-shadow: var(--button-in-inset);
+	border: var(--s) 10px solid;
 	border-radius: 40px;
 	padding: 30px;
 	white-space: nowrap;
-	overflow: scroll;
 	margin: 30px;
 	align-content: center;
 	position: fixed;
@@ -178,36 +200,35 @@ a {
 	top: 80px;
 	transition: all 0.3s ease-in-out;
 }
-.slideContent a {
-	background: var(--concave);
-	box-shadow: var(--button-out), var(--button-out-inset);
-	color: var(--light);
-	text-decoration: none;
+header a {
+	box-shadow: var(--button-out), inset 0px 0px 0px var(--s);
+	color: var(--b1);
+	text-decoration: none !important;
 	width: fit-content;
 	padding: 10px;
 	border-radius: 20px;
 	font-size: 3em;
-	margin: 10px;
-	margin-block: 30px;
+	margin: 30px;
 	display: block;
 	height: 60px;
 	line-height: 60px;
-	margin-top: 10px;
 
 	cursor: pointer;
 	pointer-events: auto;
-	transition: all 0.3s;
+	transition: all 0.3s ease-out;
 }
-.slideContent a:hover {
-	background: var(--concave);
-	box-shadow: var(--button-in), var(--button-in-inset);
-	background: linear-gradient(315deg,var(--neu),var(--shadow-neu));
-	color: var(--shadow);
-} .slideContent a:active {
-	background: var(--concave);
-	box-shadow: var(--button-in), var(--button-in-inset);
-	background: linear-gradient(315deg,var(--neu),var(--shadow-neu));
-	color: var(--shadow);
+.slideContent a {
+	margin: 10px;
+	margin-block: 30px;
+	margin-top: 10px;
+}
+header a:hover {
+	box-shadow: 0px 0px 0px var(--s), 0px 0px 0px var(--l), inset 3px 3px 9px var(--s);
+	color: var(--s);
+} header a:active {
+	box-shadow: inset 3px 3px 9px var(--s);
+	background: linear-gradient(315deg,var(--n),var(--ns));
+	color: var(--s);
 }
 
 
@@ -239,30 +260,49 @@ input ~ .toggleButton {
 	pointer-events: auto;
 	margin: 30px;
 	background: var(--convex);
-	color: var(--neu);
-	box-shadow: var(--button-out), var(--button-out-inset);
+	color: var(--n);
 	font-size: 40px;
-	width: var(--header-h);
+	width: var(--header-h); 
 	height: var(--header-h);
 	display: block;
 	line-height: var(--header-h);
-	border-radius: 30px;
 	transition: all 0.3s;
 }
-header input ~ .toggleButton {
+.slideMenu input ~ .toggleButton {
 	position: fixed;
 	top: 0px; left: 0px;
+	background: var(--n);
+	border: var(--a) 5px solid;
+	box-shadow: inset 3px 3px 9px var(--s);
+	border-radius: 999px;
+	align-items: center;
+	justify-content: center;
 }
-header input ~ .toggleButton p {
-	font-size: 40px;
-	margin: 0px;
-	text-align: center;
-	transform: rotate(90deg);
-	color: var(--neu);
-	text-shadow: 1px -1px 2px var(--shadow), 
-		-1px 1px 2px var(--light);
+header input ~ .toggleButton .menuIcon {
+	background: var(--a);
+	border-radius: 999px;
+	padding: 0px;
+	font-size: 0px;
+	margin-left: 25px;
+	/*-webkit-text-stroke: 5px var(--s);*/
+	pointer-events: none;
+	box-shadow: 2px 2px 6px var(--s), -2px -2px 6px var(--l); 
 	transition: all var(--time-drop) ease-in-out;
 }
+.slideMenu input:hover ~ .toggleButton .menuIcon {
+	padding: 5px;
+	margin-left: 20px;
+}
+.slideMenu input:active ~ .toggleButton .menuIcon {
+	padding: 10px;
+	margin-left: 15px;
+}
+.slideMenu input:checked ~ .toggleButton .menuIcon {
+	padding: calc(var(--header-h) / 2 + 1px);
+	margin-left: -1px;
+	box-shadow: 0px 0px 0px, 0px 0px 0px;
+}
+
 
 /*Checkbox*/
 input:checked ~ .slideContent {
@@ -270,18 +310,9 @@ input:checked ~ .slideContent {
 }
 
 header input:checked ~ .toggleButton p {
-	transform: rotate(-90deg);
-	transition: all var(--time-drop) ease-in-out;
-	text-shadow: -1px 1px 2px var(--shadow), 
-		1px -1px 2px var(--light);
+	margin-left: 20px;
 }
 
-.slideMenu input:checked:active ~ .toggleButton {
-	background: var(--concave);
-}
-.slideMenu input:active ~ .toggleButton {
-	background: var(--concave);
-}
 
 
 
@@ -289,29 +320,30 @@ header input:checked ~ .toggleButton p {
 
 /*Text box*/
 .indieText {
-	margin-top: 0px;
-	margin-bottom: 64px;
-	margin-inline: 50px;
+	margin-block: 32px;
 	padding: 5px;
-	width: calc(100% - margin-inline / 2);
+	width: fit-content;
+	margin-inline: auto;
 	color: var(--b1);
 	text-align: center;
 	text-wrap: balance;
 }
+.indieText p {
+	margin-top: 20px;
+}
+
 .textBox {
-	margin-bottom: 100px;
+	margin-block: 50px;
 	margin-inline: auto;
-	padding-top: 0px;
-	padding-bottom: var(--text-margin);
+	padding-block: 10px;
 	padding-inline: 5%;
-	width: calc(100% - 120px);
-	/*background: linear-gradient(315deg,var(--shadow-neu),var(--light-neu));*/
-	background-color: var(--neu);
-	border: 5px var(--neu) solid;
-	box-shadow: 5px 5px 10px var(--shadow), 
-		-5px -5px 10px var(--light),
-		inset -3px -3px 10px var(--light),
-		inset 3px 3px 10px var(--shadow);
+	/*background: linear-gradient(315deg,var(--ns),var(--nl));*/
+	background-color: var(--n);
+	border: 5px var(--n) solid;
+	box-shadow: 5px 5px 10px var(--s), 
+		-5px -5px 10px var(--l),
+		inset -3px -3px 10px var(--l),
+		inset 3px 3px 10px var(--s);
 	border-radius: 40px;
 	/*border-radius: 20px;*/
 	text-align: center;
@@ -323,8 +355,37 @@ header input:checked ~ .toggleButton p {
 
 
 
+.articleBody {
+	max-width: 800px;
+	color: var(--b1);
+	margin-inline: auto;
+	overflow: hidden;
+	text-align: center;
+}
+.articleBody p {
+	font-weight: 400;
+	text-align: left;
+	font-size: 24px;
+	line-height: 1.4em;
+	color: black;
+	float: right;
+	margin-block: 0.35em;
+}
+.articleBody h2 {
+	color: black;
+	display: inline-block;
+	margin-block: var(--text-margin);
+}
+.articleBody img {
+	float: left;
+	border: none;
+	margin-right: 20px;
+}
+
+
+
 .dropText {
-	margin-bottom: 100px;
+	margin-block: 50px;
 	margin-inline: auto;
 	color: var(--b1);
 	/*border-radius: 20px;*/
@@ -338,14 +399,13 @@ header input:checked ~ .toggleButton p {
 	padding-top: 0px;
 	padding-bottom: var(--text-margin);
 	padding-inline: 5%;
-	width: calc(100% - 120px);
-	/*background: linear-gradient(315deg,var(--shadow-neu),var(--light-neu));*/
-	background-color: var(--neu);
-	border: 5px var(--neu) solid;
-	box-shadow: 5px 5px 10px var(--shadow), 
-		-5px -5px 10px var(--light),
-		inset -3px -3px 10px var(--light),
-		inset 3px 3px 10px var(--shadow);
+	/*background: linear-gradient(315deg,var(--ns),var(--nl));*/
+	background-color: var(--n);
+	border: 5px var(--n) solid;
+	box-shadow: 5px 5px 10px var(--s), 
+		-5px -5px 10px var(--l),
+		inset -3px -3px 10px var(--l),
+		inset 3px 3px 10px var(--s);
 	border-radius: 40px;
 	justify-content: space-around;
 }
@@ -364,12 +424,11 @@ header input:checked ~ .toggleButton p {
 	display: table-cell;
 	text-align: left;
 	justify-content: center;
-	padding: 30px;
-	padding-right: 0px;
-	height: 220px;
+	padding: 0px;
+	padding-left: 20px;
 }
 .dropTextTitle h2 {
-	line-height: 160px;
+	line-height: 240px;
 }
 .dropTextContent {
 	margin: 0px;
@@ -380,7 +439,6 @@ header input:checked ~ .toggleButton p {
 	z-index: 1;
 	max-height: 0px;
 	overflow: hidden;
-	transition: max-height var(--time-drop) ease-in-out;
 }
 .dropText input {
 	width: 180px;
@@ -391,6 +449,14 @@ header input:checked ~ .toggleButton p {
 	margin-top: 80px;
 	border-radius: 999px;
 }
+input:checked ~ .dropTextContent {
+	display: inline-block;
+	flex: 1;
+	max-height: 100%;
+	padding-bottom: 50px;
+	overflow: visible;
+}
+
 .dropText input ~ .toggleButton {
 	width: 180px;
 	height: 180px;
@@ -399,56 +465,31 @@ header input:checked ~ .toggleButton p {
 	float: left;
 	border-radius: 999px;
 	margin-top: 80px;
-	box-shadow: 4px 4px 20px var(--shadow), 
-		-4px -4px 20px var(--light), 
-		inset 6px 6px 8px var(--light-neu), 
-		inset -6px -6px 8px var(--shadow-neu);
-}
-.dropText input ~ .toggleButton p {
-	font-size: 160px;
-	font-weight: 700;
-	line-height: 0px;
-	margin: 0px;
-	text-align: center;
-	color: var(--neu);
-	text-shadow: 1px 1px 5px var(--shadow), 
-		-1px -1px 5px var(--light);
-	transition: all var(--time-drop) ease-in-out;
-	pointer-events: none;
-}
-
-
-input:checked ~ .dropTextContent {
-	display: inline-block;
-	flex: 1;
-	max-height: 100%;
-	padding-bottom: 50px;
+	box-shadow: 20px 20px 60px var(--s), 
+		-20px -20px 60px var(--l), 
+		inset 0px 0px 0px var(--n);
+	transition: box-shadow var(--time-button-half) ease-in-out;
 }
 .dropText input:active ~ .toggleButton {
 	background: var(--concave);
 }
 .dropText input:checked ~ .toggleButton {
-	box-shadow: var(--button-in), 
-		inset 5px 5px 20px var(--shadow-neu), 
-		inset -5px -5px 20px var(--light-neu);
+	box-shadow: 0px 0px 0px var(--s), 
+		-0px -0px 0px var(--l), 
+		inset 10px 10px 20px var(--s);
 	background: var(--convex);
 }
 .dropText input:checked:active ~ .toggleButton {
 	background: var(--concave);
 }
-.dropText input:checked ~ .toggleButton p {
-	text-shadow: 1px 1px 5px var(--shadow), 
-		-1px -1px 5px var(--light-neu);
-	transition: all var(--time-drop) ease-in-out;
-}
 
 
 .bottom {
 	padding-inline: 10px;
-	font-size: 10px;
-	padding-top: 50px;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
+	font-size: 0.8em;
 	color: var(--b1);
+	
 }
 
 /*Animations*/
@@ -462,7 +503,7 @@ input:checked ~ .dropTextContent {
 	100% {color: #ff0000;}
 }
 
-@keyframes chromaKeyShadow {
+/*@keyframes chromaKeyShadow {
 	0% {text-shadow: var(--shadow) var(--shadow-pos-0);}
 	17% {text-shadow: var(--light) var(--shadow-pos-1);}
 	33% {text-shadow: var(--shadow) var(--shadow-pos-2);}
@@ -470,11 +511,4 @@ input:checked ~ .dropTextContent {
 	67% {text-shadow: var(--shadow) var(--shadow-pos-1);}
 	83% {text-shadow: var(--light) var(--shadow-pos-2);}
 	100% {text-shadow: var(--shadow) var(--shadow-pos-0);}
-	/*0% {text-shadow: #ff0000 0px 0px 50px;}
-	16% {text-shadow: #ffff00 0px 0px 50px;}
-	32% {text-shadow: #00ff00 0px 0px 50px;}
-	48% {text-shadow: #00ffff 0px 0px 50px;}
-	64% {text-shadow: #0000ff 0px 0px 50px;}
-	80% {text-shadow: #ff00ff 0px 0px 50px;}
-	100% {text-shadow: #ff0000 0px 0px 50px;}*/
-}
+}*/
