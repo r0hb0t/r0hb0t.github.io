@@ -31,6 +31,12 @@ function updateCam() {
 }
 updateCam(); //initialize camera position/rotation
 
+window.addEventListener("resize", (event) => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    cam.aspect = window.innerWidth / window.innerHeight;
+    cam.updateProjectionMatrix();
+}, false);
+
 //change FOV
 const fovSlider = document.getElementById("fov");
 fovSlider.addEventListener("input", (event) => {
