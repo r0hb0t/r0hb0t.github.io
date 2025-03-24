@@ -1,0 +1,14 @@
+
+body {
+    font-family: 'lucida sans', sans-serif;
+    font-size: 2em;
+}
+
+.overlay {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    padding: 10px;
+    border-bottom-right-radius: 10px;
+}
