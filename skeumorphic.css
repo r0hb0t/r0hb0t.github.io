@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
-	--s: #800066;/*#ca0000;*/ /*#1f008f;*/
-	--l: #ffcf30;/*#9dff00;*/ /*#ff5100;*/
+	--s: #8d66aa;/*#ca0000;*/ /*#1f008f;*/
+	--l: #ffddff;/*#9dff00;*/ /*#ff5100;*/
 	--n: color-mix(in srgb, var(--l) 50%, var(--s) 50%);
 	--ns: color-mix(in srgb, var(--l) 25%, var(--s) 75%);
 	--nl: color-mix(in srgb, var(--l) 75%, var(--s) 25%);
@@ -14,7 +14,7 @@
 	--button-in-inset: inset 2px 2px 5px var(--ns);
 	--button-out-inset: inset -2px -2px 10px var(--ns), 
 					inset 2px 2px 10px var(--l);
-	--header-h: 50px;
+	--header-h: 75px;
 	--slide-top: 30px;
 	--slide-left: 30px;
 	--time-drop: 0.3s;
@@ -111,16 +111,21 @@ a {
 	cursor: pointer;
 	display: block;
 	color: var(--b1);
-	text-decoration: underline var(--a);
-	transition: text-decoration 0.2s linear;
+	text-decoration: none;
+	border-bottom: 8px var(--a) solid;
+	transition: border 0.2s linear;
 } a:link {
-	text-decoration: underline var(--a);
+	border-bottom: 8px var(--a) solid;
+	text-decoration: none var(--a);
 } a:visited {
-	text-decoration: underline var(--a);
+	border-bottom: 8px var(--a) solid;
+	text-decoration: none var(--a);
 } a:hover {
-	text-decoration: underline var(--l);
+	border-bottom: 8px var(--l) solid;
+	text-decoration: none var(--l);
 } a:active {
-	text-decoration: underline var(--s);
+	border-bottom: 8px var(--l) solid;
+	text-decoration: none var(--s);
 }
 .textBox a {
 	-webkit-text-stroke: var(--nl) 2px;
@@ -154,26 +159,6 @@ a {
 	margin-inline: auto;
 }
 
-.astigmatism {
-	color: #ffffff;
-	background-color: black;
-	border-radius: 20px;
-	border: var(--nl) 2px solid;
-	font-size: 2em;
-	font-weight: 100;
-	padding-block: 0.25em;
-	margin-block: var(--text-margin);
-}
-.astigmatism.right {
-	text-shadow: #777777 -1px 0px 4px,
-				#777777 -3px -3px 6px,
-				#777777 -2px 3px 5px;
-}
-.astigmatism.left {
-	text-shadow: #ffaaaa 1.5px -0.5px 1.5px,
-				#aaaaff 0px 1.5px 0.5px;
-}
-
 .slideMenu {
 	pointer-events: none;
 	position: fixed;
@@ -197,7 +182,7 @@ a {
 	align-content: center;
 	position: fixed;
 	transform: translateX(calc(-100% - 35px)); /*margin + shadow*/
-	top: 80px;
+	top: calc(var(--header-h) + 40px);
 	transition: all 0.3s ease-in-out;
 }
 header a {
@@ -206,6 +191,7 @@ header a {
 	text-decoration: none !important;
 	width: fit-content;
 	padding: 10px;
+	border-bottom: none !important;
 	border-radius: 20px;
 	font-size: 3em;
 	margin: 30px;
@@ -283,19 +269,19 @@ header input ~ .toggleButton .menuIcon {
 	border-radius: 999px;
 	padding: 0px;
 	font-size: 0px;
-	margin-left: 25px;
+	margin-left: calc(var(--header-h) * 0.5);
 	/*-webkit-text-stroke: 5px var(--s);*/
 	pointer-events: none;
 	box-shadow: 2px 2px 6px var(--s), -2px -2px 6px var(--l); 
 	transition: all var(--time-drop) ease-in-out;
 }
 .slideMenu input:hover ~ .toggleButton .menuIcon {
-	padding: 5px;
-	margin-left: 20px;
+	padding: calc(var(--header-h) / 8);
+	margin-left: calc(var(--header-h) * 0.5 - var(--header-h) / 8);
 }
 .slideMenu input:active ~ .toggleButton .menuIcon {
-	padding: 10px;
-	margin-left: 15px;
+	padding: calc(var(--header-h) / 4);
+	margin-left: calc(var(--header-h) * 0.5 - var(--header-h) / 4);
 }
 .slideMenu input:checked ~ .toggleButton .menuIcon {
 	padding: calc(var(--header-h) / 2 + 1px);
@@ -361,6 +347,11 @@ header input:checked ~ .toggleButton p {
 	margin-inline: auto;
 	overflow: hidden;
 	text-align: center;
+	background-color: var(--l);
+	padding: 40px;
+	border-radius: 40px;
+	box-shadow: 7px 7px 21px var(--s), 
+		-6px -6px 18px var(--l);
 }
 .articleBody p {
 	font-weight: 400;
@@ -379,7 +370,7 @@ header input:checked ~ .toggleButton p {
 .articleBody img {
 	float: left;
 	border: none;
-	margin-right: 20px;
+	margin-block: var(--text-margin);
 }
 
 
