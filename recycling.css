@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+::selection {
+	color: green;
+	background: rgb(50,150,230);
+}
+
+body {
+	background-color: rgb(30,130,40);
+    height: 100%;
+    width: 100%;
+	padding: 0px;
+	font-family: Zilla Slab, sans-serif;
+	margin: 0px;
+	color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foreground {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(rgb(50,230,100),rgb(30,130,40));
+    box-shadow: -5px -5px 9px rgb(48, 174, 61), 
+            5px 5px 9px rgb(21, 101, 29);
+    border-radius: 30px;
+    width: 500px;
+    height: 700px;
+}
+
+h1 {
+    height: fit-content;
+    text-align: center;
+    font-size: 80px;
+    margin: 0px;
+}
+
+input {
+    height: 100px;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: Zilla Slab, sans-serif;
+    font-size: 40px;
+    border: none;
+}
+
+a {
+    background: linear-gradient(180deg, rgb(50,150,230),rgb(30,60,130));
+    box-shadow: -5px -5px 7px rgb(46, 175, 59), 
+                5px 5px 7px rgb(28, 124, 37);
+    text-decoration: none;
+    color: white;
+    font-size: 80px;
+    height: 100px;
+    padding-inline: 20px;
+    border-radius: 30px;
+}
