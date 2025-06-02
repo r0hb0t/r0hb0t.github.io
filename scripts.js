@@ -8,7 +8,7 @@ const header = `<div class="slideMenu">
             <a href="/doodles.html">To Be Done</a>
             <a href="/projects.html">Projects</a>
             <a href="/resources.html">Resources</a>
-            <a href="/recycling/recycling.html">Recycling Identifier</a>
+            <a href="/recycling/">Recycling Identifier</a>
         </div>
     </div>
 `;
