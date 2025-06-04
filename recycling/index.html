@@ -1,14 +1,20 @@
 <html>
 <head>
     <link rel="stylesheet" href="recycling.css"/>
+    <link rel="icon" type="image/x-icon" href="imgsrc/recyclable.png"/>
 </head>
 <title>Is It Recyclable?</title>
 
 <body>
     <div class="foreground">
     <h1>Is It Recyclable?</h1>
-    <input placeholder="Enter # or letters"/>
-    <a href="results.html">Submit</a>
+    <div class="inputField">
+        <input id="input" placeholder="????" maxlength="8"/>
+        <p>Enter the number or letters on your label.</p>
     </div>
+    <a id="button">Submit</a>
+    </div>
+
+    <script src="getInput.js" type="text/javascript"></script>
 </body>
 </html>
