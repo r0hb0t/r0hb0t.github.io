@@ -79,7 +79,7 @@ function displayResults() {
     let info = null;
     
     for (const i of labels) {
-        if (input == i[0] || input == i[1]) {
+        if (input == i[0] || input.toUpperCase() == i[1]) {
             info = i;
             break;
         }
