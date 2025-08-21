@@ -5,7 +5,6 @@ const header = `<div class="slideMenu">
 
         <div class="slideContent">
             <a href="/index.html">Home</a>
-            <a href="/doodles.html">To Be Done</a>
             <a href="/projects.html">Projects</a>
             <a href="/resources.html">Resources</a>
             <a href="/recycling/">Recycling Identifier</a>
@@ -47,4 +46,5 @@ function loadDoodles() {
             + dropText[3];
     }
     document.line
+
 }
